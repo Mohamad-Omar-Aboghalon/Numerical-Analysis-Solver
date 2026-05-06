@@ -2,6 +2,8 @@
 
 This project is a browser-based numerical methods solver built with plain HTML, CSS, and JavaScript. It provides a simple interface for solving nonlinear equations and systems of linear equations, then displays the iteration steps and final results in a console-style output panel.
 
+<img width="1367" height="806" alt="Screenshot 2026-05-05 170732" src="https://github.com/user-attachments/assets/7669c73f-3f32-4302-abd0-86333ad147b8" />
+
 ## Supported Methods
 
 - Bisection
