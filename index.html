@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Document metadata and shared stylesheet -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numerical Methods Root Finder Pro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Main two-column application layout -->
+  <div class="page-shell">
+    <!-- Left sidebar for method selection and user inputs -->
+    <aside class="control-panel">
+      <!-- Reserved panel header area -->
+      <div class="panel-header">
+        
+        
+      </div>
+
+      <!-- Method selection card -->
+      <section class="card">
+        <label class="section-label" for="method">1. Select Method</label>
+        <select id="method" class="input-control">
+          <option>Bisection</option>
+          <option>Fixed Point</option>
+          <option>False Position</option>
+          <option>Newton-Raphson</option>
+          <option>Secant</option>
+          <option>Gauss Elimination</option>
+          <option>Gauss-Jordan</option>
+          <option>Cramer-Rule</option>
+          <option>LU-Decomposition</option>
+        </select>
+      </section>
+
+      <!-- Dynamic inputs injected based on the selected method -->
+      <section id="dynamic-fields" class="card"></section>
+
+      <!-- Stopping criteria for iterative nonlinear methods -->
+      <section id="criteria-section" class="card">
+        <p class="section-label">3. Stopping Criteria</p>
+        <div class="field-grid">
+          <label>
+            <span>Error (es %)</span>
+            <input id="es" class="input-control" type="number" value="0.01" step="any">
+          </label>
+          <label>
+            <span>Max Iterations</span>
+            <input id="iterations" class="input-control" type="number" value="50" min="1" step="1">
+          </label>
+        </div>
+      </section>
+
+      <!-- Primary user actions -->
+      <div class="action-stack">
+        <button id="solve-btn" class="action-button solve">Solve &amp; Plot</button>
+        <button id="clear-inputs-btn" class="action-button danger">Clear Inputs</button>
+      </div>
+    </aside>
+
+    <!-- Right workspace for headings and solver output -->
+    <main class="workspace">
+      <!-- Workspace header and output controls -->
+      <section class="hero-card">
+        <div>
+          <p class="eyebrow">Numerical Analysis Methods Solver</p>
+          <h2>Iteration Output </h2>
+        </div>
+        <button id="clear-output-btn" class="action-button ghost">Clear Output</button>
+      </section>
+
+      <!-- Console-style results display -->
+      <section class="workspace-grid">
+        <div class="output-card">
+          <pre id="output" class="output-console"></pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Application logic -->
+  <script src="app.js"></script>
+</body>
+</html>

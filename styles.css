@@ -1,0 +1,294 @@
+/* Theme tokens and shared color system */
+:root {
+  --bg: #10212d;
+  --bg-accent: #1b3746;
+  --panel: rgba(245, 248, 250, 0.96);
+  --panel-strong: #ffffff;
+  --text: #10212d;
+  --muted: #567184;
+  --line: rgba(16, 33, 45, 0.1);
+  --brand: #1f8a70;
+  --brand-dark: #146551;
+  --danger: #c44936;
+  --danger-dark: #9d3728;
+  --ghost: #7349a0;
+  --console: #0b0f14;
+  --console-text: #88f5aa;
+  --shadow: 0 24px 60px rgba(7, 19, 28, 0.22);
+}
+
+/* Global element defaults */
+* {
+  box-sizing: border-box;
+}
+
+/* Page background and base typography */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI Variable", "Trebuchet MS", "Aptos", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(63, 186, 168, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 188, 66, 0.18), transparent 24%),
+    linear-gradient(135deg, #09141d 0%, var(--bg) 48%, var(--bg-accent) 100%);
+}
+
+/* Main application layout */
+.page-shell {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 24px;
+  padding: 16px;
+}
+
+.control-panel,
+.hero-card,
+.output-card {
+  box-shadow: var(--shadow);
+}
+
+/* Sidebar and content card surfaces */
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(237, 243, 246, 0.98));
+}
+
+/* Shared heading and helper text styles */
+.panel-header h1,
+.hero-card h2 {
+  margin: 0;
+}
+
+.panel-copy,
+.card-note {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #1c7a6f;
+  font-weight: 700;
+}
+
+/* Form cards and field layout */
+.card {
+  padding: 14px;
+  border-radius: 20px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+}
+
+.section-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e5c7f;
+}
+
+.field-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.field-grid.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Input labels and form controls */
+label span,
+.text-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #224154;
+}
+
+.input-control,
+.equation-box {
+  width: 100%;
+  border: 1px solid rgba(32, 69, 91, 0.18);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: #f8fbfc;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.input-control:focus,
+.equation-box:focus {
+  outline: none;
+  border-color: rgba(31, 138, 112, 0.65);
+  box-shadow: 0 0 0 4px rgba(31, 138, 112, 0.14);
+}
+
+.equation-box {
+  min-height: 104px;
+  resize: vertical;
+}
+
+/* Utility buttons and action controls */
+.power-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 2px;
+}
+
+.power-button,
+.action-button {
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+.power-button {
+  padding: 7px 10px;
+  background: #dfe8ec;
+  color: #234153;
+  font-weight: 600;
+}
+
+.power-button:hover,
+.action-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Action button stack and variants */
+.action-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-button {
+  padding: 12px 16px;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 16px 28px rgba(10, 26, 35, 0.16);
+}
+
+.action-button.solve {
+  background: linear-gradient(135deg, var(--brand), #27a383);
+}
+
+.action-button.solve:hover {
+  background: linear-gradient(135deg, var(--brand-dark), #1f8a70);
+}
+
+.action-button.danger {
+  background: linear-gradient(135deg, var(--danger), #dc6346);
+}
+
+.action-button.danger:hover {
+  background: linear-gradient(135deg, var(--danger-dark), #c44936);
+}
+
+.action-button.ghost {
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--ghost), #8d56bd);
+}
+
+/* Main workspace containers */
+.workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 28px;
+  color: #fff;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 35%),
+    linear-gradient(135deg, #133c55, #1b6378 62%, #23866f);
+}
+
+.hero-card h2 {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+/* Output console presentation */
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.output-card {
+  min-width: 0;
+  padding: 14px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.output-console {
+  margin: 0;
+  min-height: 480px;
+  max-height: 64vh;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #0a1016, #111a22);
+  color: var(--console-text);
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+/* Tablet and small laptop layout adjustments */
+@media (max-width: 1080px) {
+  .page-shell,
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .output-console {
+    min-height: 360px;
+  }
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 14px;
+  }
+
+  .control-panel,
+  .hero-card,
+  .output-card {
+    border-radius: 22px;
+  }
+
+  .field-grid.two-up {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
